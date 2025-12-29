@@ -1,26 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TouchableHighlight, Pressable } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import {useState, useEffect} from "react";
+import Producto from './components/Producto';
+import { getLatestProduct } from './lib/PlatziFakeApi';
 
 export default function App() {
+  const [productos, setProductos]=useState([]);
+  useEffect(()=>{
+    getLatestProduct().then(pelis=>setProductos(pelis));
+  },[])
   return (
+    <ScrollView>
+
     <View style={styles.container}>
-      <Text>Open up App.js to start</Text>
-      <Text>Some other stuff</Text>
-      <Button title="Pulsa aqui"/>
-      <Pressable underlayColor={"#09f"}
-      onPress={()=>{}} 
-      style={({pressed})=>[
-        {backgroundColor:pressed?"rgb(210,230,255)":"white"},
-        styles.wrapperCustom,
-      ]}>
-        {({pressed})=>(
-          <Text style={{
-            fontSize:pressed?32:16,
-          }}>{pressed?"Presionado":"No presionado"}</Text>
-        )}
-      </Pressable>
       <StatusBar style="auto" />
+      <View style >
+        {
+          productos.map(producto=>{
+            return <Producto key={producto.id} producto={producto} />
+          })
+        }
+      </View>
     </View>
+        </ScrollView>
   );
 }
 
