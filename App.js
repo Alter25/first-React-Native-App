@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import {useState, useEffect} from "react";
 import Producto from './components/Producto';
+import Constants from 'expo-constants';
 import { getLatestProduct } from './lib/PlatziFakeApi';
 
 export default function App() {
@@ -33,5 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    paddingHorizontal: 8,
   },
 });
