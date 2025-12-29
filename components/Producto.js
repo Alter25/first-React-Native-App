@@ -5,13 +5,14 @@ export default function Producto({producto}) {
     <View style={styles.card}>
       <Text style={styles.title}>{producto.title}</Text>
       <Image source={{uri:producto.imageUrl}} style={styles.image} />
-      <Text>{producto.price}</Text>
+      <Text>{`$${producto.price}`}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
+    maxWidth:'80%',
     display:'flex',
     alignItems:'center',
     justifyContent:'center',
