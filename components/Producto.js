@@ -5,7 +5,7 @@ export default function Producto({producto}) {
     <View style={styles.card}>
       <Text style={styles.title}>{producto.title}</Text>
       <Image source={{uri:producto.imageUrl}} style={styles.image} />
-      <Text>{`$${producto.price}`}</Text>
+      <Text style={styles.price}>{`$${producto.price}`}</Text>
     </View>
   );
 }
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   title:{
+  color:'#09f',
     fontSize:20,
     fontWeight:'bold',
     textAlign:'center',
@@ -34,5 +35,11 @@ const styles = StyleSheet.create({
     width:100,
     alignSelf:'center',
     marginTop:8,
-  }
+  },
+  price:{
+    fontSize:16,
+    fontWeight:'600',
+    color:'#080',
+    marginBottom:8,
+  },
 });
