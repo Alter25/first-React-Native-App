@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 8,
     marginVertical: 8,
+    marginHorizontal: 14,
     padding: 8,
     borderWidth: 1,
     borderColor: "#ccc",
