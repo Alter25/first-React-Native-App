@@ -2,7 +2,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 
 export default function Producto({ producto }) {
   return (
-    <View style={styles.card}>
+    <View className="bg-slate-500s">
       <Text style={styles.title}>{producto.title}</Text>
       <Image source={{ uri: producto.imageUrl }} style={styles.image} />
       <Text style={styles.price}>{`$${producto.price}`}</Text>
